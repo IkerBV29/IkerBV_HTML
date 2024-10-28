@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación MySQL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #004d00; /* Fondo verde oscuro */
+            color: #000000; /* Texto blanco */
+        }
+        .content {
+            padding: 20px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #000000;
+        }
+        p {
+            color: #000000;
+        }
+        pre {
+            background-color: #003300; /* Fondo verde oscuro para el código */
+            border: 1px solid #002200;
+            padding: 10px;
+            overflow-x: auto;
+            color: #000000; /* Texto blanco */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            color: #000000; /* Texto blanco */
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        ul li a {
+            text-decoration: none;
+            color: #00ff00; /* Enlaces en verde claro */
+        }
+        ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <h2>Lista Anidada:</h2>
+    <ul>
+        <li>Coffee</li>
+        <li>Tea
+            <ul>
+                <li>Black tea</li>
+                <li>Green tea
+                    <ul>
+                        <li>China</li>
+                        <li>Africa</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Milk</li>
+    </ul>
+
+    <p><strong>Coffee</strong><br>
+    - black hot drink</p>
+
+    <p><strong>Milk</strong><br>
+    - white cold drink</p>
+
+    <h2>Lista numerada:</h2>
+    <ol>
+        <li>Apples</li>
+        <li>Bananas</li>
+        <li>Lemons</li>
+        <li>Oranges</li>
+    </ol>
+
+    <h2>Lista con letras mayúsculas:</h2>
+    <ol type="A">
+        <li>Apples</li>
+        <li>Bananas</li>
+        <li>Lemons</li>
+        <li>Oranges</li>
+    </ol>
+
+    <h2>Lista con letras minúsculas:</h2>
+    <ol type="a">
+        <li>Apples</li>
+        <li>Bananas</li>
+        <li>Lemons</li>
+        <li>Oranges</li>
+    </ol>
+
+    <h2>Lista con números romanos:</h2>
+    <ol type="I">
+        <li>Apples</li>
+        <li>Bananas</li>
+        <li>Lemons</li>
+        <li>Oranges</li>
+    </ol>
+
+    <h2>Lista con números romanos minúsculos:</h2>
+    <ol type="i">
+        <li>Apples</li>
+        <li>Bananas</li>
+        <li>Lemons</li>
+        <li>Oranges</li>
+    </ol>
+
+    <p>Enlace para enviar emails a una dirección determinada: <a href="mailto:iker.blazquez.7e7@itb.cat">Enviar email</a></p>
+    <h2>CREATE TABLE examples</h2>
+    <ul>
+        <li><a href="#basic-create-table">Basic CREATE TABLE statement</a></li>
+        <li><a href="#particular-storage-engine">Creating a table with a particular storage engine</a></li>
+        <li><a href="#auto-increment">Creating a table with auto_increment</a></li>
+        <li><a href="#current-timestamp">Creating a table with the current timestamp</a></li>
+        <li><a href="#timestamp-default">Creating a table with TIMESTAMP DEFAULT NOW()</a></li>
+        <li><a href="#viewing-table-definition">Viewing a table definition</a></li>
+    </ul>
+
+    <h3 id="basic-create-table">Basic CREATE TABLE statement</h3>
+    <pre><code>CREATE TABLE t (
+    i INT,
+    c CHAR(10)
+);
+    </code></pre>
+
+    <h3 id="particular-storage-engine">Creating a table with a particular storage engine</h3>
+    <pre><code>CREATE TABLE t (
+    i INT
+) ENGINE = InnoDB;
+    </code></pre>
+    <p>To create a table explicitly in a given storage engine. The default storage engine is used unless you specify a different one.</p>
+
+    <h3 id="auto-increment">Creating a table with auto_increment</h3>
+    <pre><code>CREATE TABLE t (
+    i INT NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (i)
+);
+    </code></pre>
+
+    <h3 id="current-timestamp">Creating a table with the current timestamp</h3>
+    <pre><code>CREATE TABLE t (
+    ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+    </code></pre>
+
+    <h3 id="timestamp-default">Creating a table with TIMESTAMP DEFAULT NOW()</h3>
+    <pre><code>CREATE TABLE t (
+    ts TIMESTAMP DEFAULT NOW()
+);
+    </code></pre>
+    <p>Since MySQL 5.6.5, you can use CURRENT_TIMESTAMP as the default value for a column. Alternatively, use the NOW() function.</p>
+
+    <h3 id="viewing-table-definition">Viewing a table definition</h3>
+    <pre><code>SHOW CREATE TABLE t;
+    </code></pre>
+    <p>The SHOW CREATE TABLE statement returns the SQL statement that creates the specified table.</p>
+</div>
+
+</body>
+</html>
